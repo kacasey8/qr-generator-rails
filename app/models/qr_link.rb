@@ -1,0 +1,2 @@
+class QrLink < ApplicationRecord
+end

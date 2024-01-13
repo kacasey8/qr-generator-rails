@@ -1,0 +1,2 @@
+module QrLinksHelper
+end
