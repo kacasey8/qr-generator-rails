@@ -67,3 +67,9 @@ group :test do
 end
 
 gem "rqrcode", "~> 2.2"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+group :production do
+  gem "pg", "~> 1.5"
+end
