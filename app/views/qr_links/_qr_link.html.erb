@@ -6,7 +6,9 @@
 
   <p>
     <strong>Destination url:</strong>
-    <%= qr_link.destination_url %>
+    <%= link_to qr_link.destination_url, qr_link_resolve_path(qr_link) %>
   </p>
+
+  <%= image_tag(url_for(qr_link.qrcode)) %>
 
 </div>

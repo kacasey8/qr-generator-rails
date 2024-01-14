@@ -1,5 +1,5 @@
 class QrLinksController < ApplicationController
-  before_action :set_qr_link, only: %i[ show edit update destroy ]
+  before_action :set_qr_link, only: %i[ show edit update destroy resolve ]
 
   # GET /qr_links or /qr_links.json
   def index
@@ -57,6 +57,14 @@ class QrLinksController < ApplicationController
     end
   end
 
+  def resolve
+    url = @qr_link.destination_url.starts_with?("http") ? @qr_link.destination_url : "https://#{@qr_link.destination_url}"
+    respond_to do |format|
+      format.html { redirect_to url, allow_other_host: true, :protocol => 'https://'  }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_qr_link
@@ -65,6 +73,6 @@ class QrLinksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def qr_link_params
-      params.require(:qr_link).permit(:name, :destination_url)
+      params.require(:qr_link).permit(:name, :destination_url, :qrcode)
     end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  root 'qr_links#index'
   resources :qr_links
+  get "qr_links/:id/resolve", to: "qr_links#resolve", as: :qr_link_resolve
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
