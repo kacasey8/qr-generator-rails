@@ -8,9 +8,10 @@ class QrLink < ApplicationRecord
 
     def generate_qrcode
         # Get the host
-        host = Rails.application.config.action_controller.default_url_options[:host]
+        default_url_options = Rails.application.config.action_controller.default_url_options
+        host = Rails.env.production? ? "https://ccfciv-qr-generator.fly.dev" : "http://#{default_url_options[:host]}"
         # Create the QRCode Object
-        qrcode = RQRCode::QRCode.new(qr_link_resolve_path(self, host: host))
+        qrcode = RQRCode::QRCode.new(host + qr_link_resolve_path(self))
         png = qrcode.as_png(
             bit_depth: 1,
             border_modules: 4,
