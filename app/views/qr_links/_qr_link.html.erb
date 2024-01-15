@@ -11,4 +11,9 @@
 
   <%= image_tag(url_for(qr_link.qrcode)) %>
 
+  <p>
+    <strong>Or point your QR code to</strong>
+    <%= get_my_hostname + qr_link_resolve_path(qr_link) %>
+  </p>
+
 </div>
