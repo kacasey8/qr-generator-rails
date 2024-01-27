@@ -1,9 +1,14 @@
 class QrLinksController < ApplicationController
+  include QrLinksHelper
   before_action :set_qr_link, only: %i[ show edit update destroy resolve ]
 
   # GET /qr_links or /qr_links.json
   def index
     @qr_links = QrLink.all
+    respond_to do |format|
+      format.html
+      format.json { render json: QrLinkDatatable.new(params) }
+    end
   end
 
   # GET /qr_links/1 or /qr_links/1.json
@@ -73,6 +78,6 @@ class QrLinksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def qr_link_params
-      params.require(:qr_link).permit(:name, :destination_url, :qrcode)
+      params.require(:qr_link).permit(:name, :destination_url)
     end
 end

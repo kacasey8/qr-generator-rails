@@ -77,6 +77,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
+    ajax-datatables-rails (1.4.0)
+      rails (>= 5.2)
+      zeitwerk
     base64 (0.2.0)
     bigdecimal (3.1.5)
     bindex (0.8.1)
@@ -127,6 +130,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jquery-datatables (1.10.20)
     litestack (0.4.2)
       erubi
       hanami-router
@@ -282,12 +286,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ajax-datatables-rails
   bootsnap
   capybara
   debug
   dockerfile-rails (>= 1.6)
   importmap-rails
   jbuilder
+  jquery-datatables
   litestack (~> 0.4.2)
   puma (>= 5.0)
   rails (~> 7.1.2)

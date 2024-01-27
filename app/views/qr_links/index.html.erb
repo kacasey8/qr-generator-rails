@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Qr links</h1>
-
-<div id="qr_links">
-  <% @qr_links.each do |qr_link| %>
-    <%= render qr_link %>
-    <p>
-      <%= link_to "Show this qr link", qr_link %>
-    </p>
-  <% end %>
+<h1>QR Links</h1>
+<div style="padding-bottom:12px">
+<%= link_to "New qr link", new_qr_link_path %>
 </div>
+
+<table id="qr-links-datatable" data-source="<%= qr_links_path(format: :json) %>">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Destination URL</th>
+      <th>QR PNG</th>
+      <th>QR Resolve URL</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<br>
 
 <%= link_to "New qr link", new_qr_link_path %>

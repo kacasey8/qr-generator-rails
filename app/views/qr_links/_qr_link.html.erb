@@ -9,11 +9,11 @@
     <%= link_to qr_link.destination_url, qr_link_resolve_path(qr_link) %>
   </p>
 
-  <%= image_tag(url_for(qr_link.qrcode)) %>
+  <%= image_tag(qr_link.qr_png_url) %>
 
   <p>
     <strong>Or point your QR code to</strong>
-    <%= get_my_hostname + qr_link_resolve_path(qr_link) %>
+    <%= qr_link.resolve_url %>
   </p>
 
 </div>
