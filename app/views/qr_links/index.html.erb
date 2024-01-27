@@ -27,7 +27,7 @@
         <td class="flex flex-col gap-2 flex-0">
           <%= link_to "Show", qr_link_path(qr_link), :class => "btn-blue" %>
           <%= link_to "Edit", edit_qr_link_path(qr_link), :class => "btn-blue" %>
-          <%= link_to "Destroy", qr_link_path(qr_link), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: "btn-red" %>
+          <%= link_to "Destroy", qr_link_path(qr_link), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete?' }, class: "btn-red" %>
         </td>
       </tr>
     <% end %>

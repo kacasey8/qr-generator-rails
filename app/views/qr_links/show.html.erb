@@ -2,9 +2,10 @@
 
 <%= render @qr_link %>
 
-<div>
-  <%= link_to "Edit this qr link", edit_qr_link_path(@qr_link) %> |
-  <%= link_to "Back to qr links", qr_links_path %>
-
-  <%= button_to "Destroy this qr link", @qr_link, method: :delete %>
+<div class="py-3">
+  <%= link_to "Edit this qr link", edit_qr_link_path(@qr_link), class: 'btn-blue' %> |
+  <%= link_to "Back to qr links", qr_links_path, class: 'btn-blue' %>
+</div>
+<div class="py-3">
+  <%= link_to "Destroy this qr link", qr_link_path(@qr_link), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete?' }, class: "btn-red" %>
 </div>
