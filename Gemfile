@@ -75,3 +75,5 @@ gem "litestack", "~> 0.4.2"
 gem "ajax-datatables-rails"
 
 gem "jquery-datatables"
+
+gem "tailwindcss-rails", "~> 2.3"

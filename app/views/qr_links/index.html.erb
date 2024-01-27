@@ -1,9 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>QR Links</h1>
-<div style="padding-bottom:12px">
-<%= link_to "New qr link", new_qr_link_path %>
-</div>
+<%= link_to "New qr link", new_qr_link_path, class: "btn-blue my-6 max-w-32" %>
 
 <table id="qr-links-datatable" class="cell-border">
   <thead>
@@ -22,21 +20,23 @@
       <tr>
         <td><%= link_to qr_link.name, qr_link_path(qr_link) %></td>
         <td><%= qr_link.destination_url %></td>
-        <td><%= image_tag(qr_link.qr_png_url, style: 'height:100px;width:100px;') %></td>
-        <td><%= qr_link.resolve_url %></td>
+        <td><%= image_tag(qr_link.qr_png_url, style: 'height:130px;width:130px;') %></td>
+        <td class="max-w-24 text-xs text-wrap break-words	"><%= qr_link.resolve_url %></td>
         <td><%= qr_link.created_at.strftime("%F") %></td>
         <td><%= qr_link.updated_at.strftime("%F") %></td>
-        <td>
-          <%= link_to "Show", qr_link_path(qr_link), :class => "btn btn-primary" %>
-          <%= link_to "Edit", edit_qr_link_path(qr_link) %>
-          <%= link_to "Destroy", qr_link_path(qr_link), method: :delete, data: { confirm: "Are you sure?" } %>
+        <td class="flex flex-col gap-2 flex-0">
+          <%= link_to "Show", qr_link_path(qr_link), :class => "btn-blue" %>
+          <%= link_to "Edit", edit_qr_link_path(qr_link), :class => "btn-blue" %>
+          <%= link_to "Destroy", qr_link_path(qr_link), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: "btn-red" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "New qr link", new_qr_link_path %>
+<div class="mb-6">
+<%= link_to "New qr link", new_qr_link_path, class: "btn-blue max-w-32" %>
+</div>
 
 <script>
   $(document).ready(function() {
@@ -47,3 +47,8 @@
     }
   });
 </script>
+<style>
+  .dataTables_wrapper .dataTables_length select {
+    width: 60px;
+  }
+</style>
