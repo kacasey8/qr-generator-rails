@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+
+@layer base {
+  a {
+    @apply text-blue-600 hover:text-blue-800 visited:text-purple-600;
+  }
+
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded visited:text-white hover:text-white;
+  }
+
+  .btn-red {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded visited:text-white hover:text-white;
+  }
+
+  h1 {
+    @apply text-4xl font-bold text-gray-800;
+  }
+
+  input[type="submit" i] {
+    @apply cursor-pointer;
+  }
+  /* a:visited {
+    @apply text-blue-600
+  } */
+}
